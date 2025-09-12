@@ -1,24 +1,76 @@
+/* Body en basis layout */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f7faf6; /* heel lichte groene achtergrond, rustgevend */
+  color: #2d2d2d; /* neutrale donkere tekst voor leesbaarheid */
+  line-height: 1.6;
 }
 
+/* Navigatiebalk */
 nav {
-  background: #333;
-  padding: 10px;
+  background: #a8d5ba; /* zachte, lichte groene tint */
+  padding: 15px 25px;
+  display: flex;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* subtiele schaduw voor luxe gevoel */
 }
 
+/* Navigatielinks */
 nav a {
-  color: white;
-  margin-right: 15px;
+  color: #1f3d2d; /* donkerder groen, professioneel */
+  margin: 0 20px;
   text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #ffffff; /* lichte highlight bij hover */
 }
 
+/* Main content */
 main {
-  padding: 20px;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff; /* wit vlak voor inhoud voor professionaliteit */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05); /* zachte schaduw voor luxe touch */
+}
+
+/* Titels */
+h1, h2 {
+  color: #2f5d3f; /* zachte donkergroene tint voor titels */
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Paragrafen */
+p {
+  font-size: 1.05rem;
+  color: #3a3a3a;
+  margin-bottom: 18px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 18px;
+  background: #a8d5ba; /* match de navigatiebalk */
+  color: #1f3d2d;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: 40px;
+  font-weight: 500;
+}
+
+/* Optioneel: subtiele hover animatie voor links in main content */
+a {
+  transition: color 0.3s ease;
 }
