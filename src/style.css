@@ -1,93 +1,248 @@
-/* Body en basis layout */
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/* Reset en basis styling */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f7faf6; /* heel lichte groene achtergrond, rustgevend */
-  color: #2d2d2d; /* neutrale donkere tekst voor leesbaarheid */
+  box-sizing: border-box;
+}
+
+/* Body en basis layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8faf9;
+  color: #2d2d2d;
   line-height: 1.6;
 }
 
-/* Navigatiebalk */
-nav {
-  background: #a8d5ba; /* zachte, lichte groene tint */
-  padding: 15px 25px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* zorgt dat menu niet uit beeld verdwijnt */
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* subtiele schaduw voor luxe gevoel */
+/* Moderne navigatiebalk */
+.navbar {
+  background: linear-gradient(135deg, #6b9f7a 0%, #a8d5ba 100%);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
 
-/* Navigatielinks */
-nav a {
-  color: #1f3d2d; /* donkerder groen, professioneel */
-  margin: 0 20px;
+.nav-link:focus {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
+  padding: 20px 0;
+  letter-spacing: 0.5px;
   transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: #ffffff; /* lichte highlight bij hover */
+.nav-logo:hover {
+  color: #f0f7f4;
 }
 
-/* Main content */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: block;
+  padding: 12px 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Hamburger menu voor mobiel */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 2px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* Mobiele weergave */
+@media only screen and (max-width: 600px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #6b9f7a 0%, #a8d5ba 100%);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  .nav-menu.active {
+    max-height: 400px;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-link {
+    padding: 16px 20px;
+    border-radius: 0;
+  }
+
+  /* Hamburger animatie */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+/* Main content styling */
 main {
-  max-width: 850px;
+  max-width: 1000px;
   margin: 40px auto;
-  padding: 25px;
-  background: #ffffff; /* wit vlak voor inhoud voor professionaliteit */
+  padding: 30px;
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.05); /* zachte schaduw voor luxe touch */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
 /* Titels */
 h1, h2 {
-  color: #2f5d3f; /* zachte donkergroene tint voor titels */
+  color: #2f5d3f;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-top: 30px;
 }
 
 /* Paragrafen */
 p {
-  font-size: 1.05rem;
-  color: #3a3a3a;
-  margin-bottom: 18px;
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+/* Links in content */
+a:not(.nav-link):not(.nav-logo) {
+  color: #2f5d3f;
+  transition: color 0.3s ease;
+}
+
+a:not(.nav-link):not(.nav-logo):hover {
+  color: #6b9f7a;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 18px;
-  background: #a8d5ba; /* match de navigatiebalk */
-  color: #1f3d2d;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  padding: 20px;
+  background: linear-gradient(135deg, #6b9f7a 0%, #a8d5ba 100%);
+  color: white;
   margin-top: 40px;
   font-weight: 500;
 }
 
-/* Optioneel: subtiele hover animatie voor links in main content */
-a {
-  transition: color 0.3s ease;
+/* Responsieve aanpassingen voor tablet */
+@media screen and (max-width: 1024px) {
+  main {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .nav-container {
+    padding: 0 15px;
+  }
 }
 
-/* Logo in de navigatiebalk */
-nav .nav-logo {
-  height: 40px; /* hoogte van het logo, groter dan favicon-tab icoon */
-  width: auto;  /* behoud verhouding */
-  margin-right: 20px; /* ruimte tussen logo en links */
-  vertical-align: middle;
-}
+/* Extra kleine schermen */
+@media screen and (max-width: 480px) {
+  .nav-logo {
+    font-size: 1.3rem;
+    padding: 15px 0;
+  }
 
-/* Responsieve aanpassingen voor kleinere schermen */
-@media (max-width: 600px) {
-  nav a {
-    margin: 8px 12px;
-    font-size: 0.95rem;
+  main {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
   }
 }
