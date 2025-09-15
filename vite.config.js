@@ -9,8 +9,12 @@ export default defineConfig({
         emptyOutDir: true,
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'src/index.html'),
-                about: resolve(__dirname, 'src/about.html')
+                index: resolve(__dirname, 'src/index.html'),
+                about: resolve(__dirname, 'src/about.html'),
+                dierenwelzijnenrecht: resolve(__dirname, 'src/dierenwelzijnenrecht.html'),
+                klimaatenbiodiversiteit: resolve(__dirname, 'src/klimaatenbiodiversiteit.html'),
+                volksgezondheid: resolve(__dirname, 'src/volksgezondheid.html'),
+                cultuurenmaatschappij: resolve(__dirname, 'src/cultuurenmaatschappij.html')
             }
         }
     }
