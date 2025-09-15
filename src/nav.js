@@ -1,7 +1,10 @@
 // nav.js - Verbeterde navigatie met hamburger menu
 document.addEventListener("DOMContentLoaded", async () => {
     // Nav HTML laden (zoals voorheen)
-    const response = await fetch("./nav.html");
+    //const response = await fetch("./nav.html"); // lokaal
+    const response = await fetch("https://danae02.github.io/DeStaatVanDeWereld/nav.html"); // online
+
+
     const navHtml = await response.text();
     document.getElementById("nav-placeholder").innerHTML = navHtml;
 
