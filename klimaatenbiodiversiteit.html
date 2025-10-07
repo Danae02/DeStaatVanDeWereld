@@ -6,8 +6,6 @@
     <title>Klimaat & Biodiversiteit - Staat van de Wereld</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.0/tesseract.min.js"></script>
-
-
   <script type="module" crossorigin src="/DeStaatVanDeWereld/assets/klimaatenbiodiversiteit-DEZ-3wKN.js"></script>
   <link rel="modulepreload" crossorigin href="/DeStaatVanDeWereld/assets/style-B_CneCIy.js">
   <link rel="stylesheet" crossorigin href="/DeStaatVanDeWereld/assets/style-CPQKyTXh.css">
@@ -16,13 +14,21 @@
 <div id="nav-placeholder"></div>
 
 <main>
-    <h1>Klimaat & Biodiversiteit</h1>
-    <p>Ontdek de milieu-impact van producten door hun ingrediënten te scannen.</p>
+    <p>Ontdek de impact van producten door de barcode te scannen of handmatig in te vullen.</p>
 
     <!-- Product Scanner Sectie -->
     <section class="scanner-section">
         <h2>🌍 Product Impact Scanner</h2>
 
+        <!-- Nieuwe informatie over afhankelijkheid -->
+        <div class="info-box" style="background: #e3f2fd; border-left: 4px solid #2196f3; margin-bottom: 20px;">
+            <strong>ℹ️ Over onze data</strong>
+            <p style="margin: 8px 0 0 0; font-size: 0.95em;">
+                Deze scanner gebruikt productgegevens van <a href="https://nl.openfoodfacts.org/" target="_blank" style="color: #1976d2; font-weight: bold;">Open Food Facts</a>,
+                een open database die afhankelijk is van bijdragen van gebruikers zoals jij.
+                <strong>Niet alle producten staan in de database</strong> - help mee door ontbrekende producten toe te voegen!
+            </p>
+        </div>
 
         <!-- Barcode sectie -->
         <div class="barcode-section" id="barcodeSection">
@@ -103,6 +109,8 @@
 
             <div class="warning">
                 ⚠️ Impact berekeningen zijn schattingen. Barcode data komt van Open Food Facts (crowdsourced).
+                <br>
+                <strong>Mist een product?</strong> Voeg het toe op <a href="https://nl.openfoodfacts.org/" target="_blank" style="color: #155724;">nl.openfoodfacts.org</a> en help de database groeien!
             </div>
         </div>
     </section>
