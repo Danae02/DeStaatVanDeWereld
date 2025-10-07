@@ -5,16 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klimaat & Biodiversiteit - Staat van de Wereld</title>
     <link rel="icon" type="image/png" href="/favicon.png">
-  <script type="module" crossorigin src="/DeStaatVanDeWereld/assets/klimaatenbiodiversiteit-bHkIp0YC.js"></script>
-  <link rel="modulepreload" crossorigin href="/DeStaatVanDeWereld/assets/style-DZfz2fHE.js">
-  <link rel="stylesheet" crossorigin href="/DeStaatVanDeWereld/assets/style-Cdi-zEaD.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.0/tesseract.min.js"></script>
+  <script type="module" crossorigin src="/DeStaatVanDeWereld/assets/klimaatenbiodiversiteit-OBRfP7Pm.js"></script>
+  <link rel="modulepreload" crossorigin href="/DeStaatVanDeWereld/assets/style-BYW1VXlD.js">
+  <link rel="stylesheet" crossorigin href="/DeStaatVanDeWereld/assets/style-CWFtV3kn.css">
 </head>
 <body>
 <div id="nav-placeholder"></div>
 
 <main>
     <h1>Klimaat & Biodiversiteit</h1>
-    <p>Hier komt informatie over klimaat en biodiversiteit.</p>
+    <p>Ontdek de milieu-impact van producten door hun ingrediënten te scannen.</p>
+
+    <!-- Product Scanner Sectie -->
+    <section class="scanner-section">
+        <h2>🌍 Product Impact Scanner</h2>
+
+
+        <!-- Barcode sectie -->
+        <div class="barcode-section" id="barcodeSection">
+            <h3>Scan of voer barcode in</h3>
+
+            <div class="barcode-options">
+                <button class="btn" onclick="startBarcodeScanner()">📷 Scan Barcode met Camera</button>
+                <p style="margin: 10px 0; color: #666;">of</p>
+                <input type="text" class="barcode-input" id="barcodeInput" placeholder="Voer barcode in: 8710400510963">
+                <button class="btn" onclick="lookupBarcode()">🔍 Zoek Product</button>
+            </div>
+
+            <video id="barcodeVideo" autoplay></video>
+            <canvas id="barcodeCanvas"></canvas>
+            <div id="barcodeDetected"></div>
+
+            <div class="info-box">
+                <strong>💡 Tip:</strong> Deze methode gebruikt Open Food Facts API voor gedetailleerde productinformatie inclusief ingrediënten, voedingswaarde en milieuimpact scores.
+            </div>
+        </div>
+
+        <!-- OCR sectie -->
+        <div class="upload-section" id="ocrSection">
+            <h3>📸 Kies een optie</h3>
+            <input type="file" id="fileInput" accept="image/*">
+            <button class="btn" onclick="document.getElementById('fileInput').click()">
+                📁 Upload Afbeelding
+            </button>
+            <button class="btn" id="cameraBtn" onclick="startCamera()">
+                📷 Open Camera
+            </button>
+            <button class="btn" id="captureBtn" onclick="capturePhoto()" style="display:none;">
+                📸 Maak Foto
+            </button>
+        </div>
+
+        <video id="video" autoplay></video>
+        <img id="preview" alt="Preview">
+        <canvas id="canvas"></canvas>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p id="loadingText">Bezig met analyseren...</p>
+        </div>
+
+        <div class="results" id="results">
+            <div class="product-info" id="productInfo">
+                <h3>Product Informatie</h3>
+                <div id="productDetails"></div>
+            </div>
+
+            <h3>📋 Ingrediënten</h3>
+            <div class="ingredients-list" id="ingredientsList"></div>
+
+            <h3>🌱 Milieu Impact</h3>
+            <div class="impact-cards">
+                <div class="impact-card">
+                    <h4>CO₂ Uitstoot Totaal</h4>
+                    <div class="value" id="co2Value">0</div>
+                    <div class="unit">kg CO₂ eq</div>
+                </div>
+                <div class="impact-card">
+                    <h4>Dierenleed Index</h4>
+                    <div class="value" id="animalValue">0</div>
+                    <div class="unit">impact score</div>
+                </div>
+                <div class="impact-card">
+                    <h4>Water Gebruik</h4>
+                    <div class="value" id="waterValue">0</div>
+                    <div class="unit">liters</div>
+                </div>
+                <div class="impact-card">
+                    <h4>Ecoscore</h4>
+                    <div class="value" id="ecoscoreValue">-</div>
+                    <div class="unit">Open Food Facts</div>
+                </div>
+            </div>
+
+            <div class="warning">
+                ⚠️ Impact berekeningen zijn schattingen. Barcode data komt van Open Food Facts (crowdsourced).
+            </div>
+        </div>
+    </section>
 </main>
 
 </body>
